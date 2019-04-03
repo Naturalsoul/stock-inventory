@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
+import { MuiThemeProvider } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { green, cyan } from '@material-ui/core/colors';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+// Routes
+import Routes from './routes/routes';
 
-export default App;
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+    secondary: cyan,
+  },
+});
+
+export default () => (
+  <MuiThemeProvider theme={theme}>
+    <Routes />
+  </MuiThemeProvider>
+);
